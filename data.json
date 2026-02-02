@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "name": "Le Grain Libre",
+    "type": "restaurant",
+    "latitude": 48.8567,
+    "longitude": 2.3510,
+    "city": "Paris",
+    "address": "12 Rue des Écoles, 75005 Paris",
+    "phone": "+33 1 42 17 08 61",
+    "openingHours": {
+      "Lun-Ven": "12:00–14:30 · 19:00–22:30",
+      "Sam": "12:00–23:00",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Risotto aux champignons", "price": 15.9},
+      {"name": "Pâtes de riz au pesto", "price": 14.5},
+      {"name": "Tarte citron meringuée", "price": 7.5}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Café Sarrasin",
+    "type": "restaurant",
+    "latitude": 48.8356,
+    "longitude": 2.2437,
+    "city": "Boulogne-Billancourt",
+    "address": "18 Avenue Jean-Baptiste Clément, 92100 Boulogne-Billancourt",
+    "phone": "+33 1 46 03 18 12",
+    "openingHours": {
+      "Lun-Ven": "12:00–14:30 · 19:00–22:30",
+      "Sam": "12:00–23:00",
+      "Dim": "12:00–16:00"
+    },
+    "glutenFreeItems": [
+      {"name": "Galette complète (sarrasin)", "price": 13.9},
+      {"name": "Bowl quinoa avocat", "price": 14.8},
+      {"name": "Moelleux chocolat amande", "price": 7.2}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Bistro Céleste",
+    "type": "restaurant",
+    "latitude": 48.8660,
+    "longitude": 2.3336,
+    "city": "Paris",
+    "address": "19 Rue Saint-Roch, 75001 Paris",
+    "phone": "+33 1 40 20 11 55",
+    "openingHours": {
+      "Lun-Jeu": "12:00–14:30 · 19:00–22:00",
+      "Ven-Sam": "12:00–14:30 · 19:00–23:00",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Gnocchis de patate douce", "price": 16.5},
+      {"name": "Salade burrata", "price": 13.9},
+      {"name": "Mousse chocolat", "price": 6.9}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Brasserie Lumen",
+    "type": "restaurant",
+    "latitude": 48.8532,
+    "longitude": 2.3499,
+    "city": "Paris",
+    "address": "7 Boulevard Saint-Germain, 75005 Paris",
+    "phone": "+33 1 44 07 12 14",
+    "openingHours": {
+      "Lun-Jeu": "12:00–14:30 · 19:00–22:30",
+      "Ven-Sam": "12:00–15:00 · 19:00–23:00",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Poulet rôti & légumes rôtis", "price": 18.4},
+      {"name": "Risotto parmesan", "price": 16.9},
+      {"name": "Crème brûlée vanille", "price": 7.6}
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Maison Verveine",
+    "type": "restaurant",
+    "latitude": 48.8494,
+    "longitude": 2.3226,
+    "city": "Paris",
+    "address": "28 Rue du Cherche-Midi, 75006 Paris",
+    "phone": "+33 1 45 48 02 77",
+    "openingHours": {
+      "Mar-Ven": "12:00–14:30 · 19:00–22:30",
+      "Sam": "12:00–23:00",
+      "Dim-Lun": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Velouté de potimarron", "price": 9.5},
+      {"name": "Galette sarrasin", "price": 12.9},
+      {"name": "Cheesecake coco", "price": 7.9}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Minaïa Kitchen",
+    "type": "restaurant",
+    "latitude": 48.8709,
+    "longitude": 2.3412,
+    "city": "Paris",
+    "address": "3 Rue de Maubeuge, 75009 Paris",
+    "phone": "+33 1 48 78 15 21",
+    "openingHours": {
+      "Mar-Ven": "12:00–14:30 · 19:00–22:30",
+      "Sam": "12:00–23:00",
+      "Dim-Lun": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Curry coco & riz basmati", "price": 16.2},
+      {"name": "Saumon grillé, quinoa", "price": 19.2},
+      {"name": "Panna cotta fruits rouges", "price": 7.4}
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Atelier Flamme",
+    "type": "restaurant",
+    "latitude": 48.8626,
+    "longitude": 2.3561,
+    "city": "Paris",
+    "address": "15 Rue des Archives, 75004 Paris",
+    "phone": "+33 1 42 72 90 12",
+    "openingHours": {
+      "Lun-Jeu": "12:00–14:30 · 19:00–22:30",
+      "Ven": "12:00–14:30 · 19:00–23:00",
+      "Sam-Dim": "12:00–23:00"
+    },
+    "glutenFreeItems": [
+      {"name": "Pizza base riz", "price": 17.9},
+      {"name": "Bowl méditerranéen", "price": 14.9},
+      {"name": "Sorbet mangue", "price": 6.2}
+    ]
+  },
+  {
+    "id": 8,
+    "name": "La Terrasse d'Épeautre",
+    "type": "restaurant",
+    "latitude": 48.8477,
+    "longitude": 2.4372,
+    "city": "Vincennes",
+    "address": "6 Avenue de Paris, 94300 Vincennes",
+    "phone": "+33 1 43 43 18 29",
+    "openingHours": {
+      "Lun-Jeu": "12:00–14:30 · 19:00–22:00",
+      "Ven-Sam": "12:00–14:30 · 19:00–23:00",
+      "Dim": "12:00–16:00"
+    },
+    "glutenFreeItems": [
+      {"name": "Tacos de maïs (poulet)", "price": 13.7},
+      {"name": "Bowl méditerranéen", "price": 14.9},
+      {"name": "Tarte citron revisité", "price": 7.9}
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Table Azur",
+    "type": "restaurant",
+    "latitude": 48.8731,
+    "longitude": 2.2950,
+    "city": "Paris",
+    "address": "10 Rue de Presbourg, 75116 Paris",
+    "phone": "+33 1 45 62 78 30",
+    "openingHours": {
+      "Lun-Ven": "12:00–14:30 · 19:00–22:30",
+      "Sam": "19:00–23:00",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Saumon grillé", "price": 19.5},
+      {"name": "Quinoa citronné", "price": 13.5},
+      {"name": "Panna cotta framboise", "price": 7.2}
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Cantina Verde",
+    "type": "restaurant",
+    "latitude": 48.8423,
+    "longitude": 2.3255,
+    "city": "Paris",
+    "address": "5 Rue d'Alésia, 75014 Paris",
+    "phone": "+33 1 45 39 21 09",
+    "openingHours": {
+      "Lun-Ven": "12:00–15:00 · 19:00–22:30",
+      "Sam": "12:00–23:00",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Salade burrata & tomates", "price": 14.1},
+      {"name": "Gnocchis patate douce", "price": 16.7},
+      {"name": "Sorbet mangue", "price": 6.3}
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Cantine Aura",
+    "type": "restaurant",
+    "latitude": 48.8672,
+    "longitude": 2.3623,
+    "city": "Paris",
+    "address": "21 Rue Oberkampf, 75011 Paris",
+    "phone": "+33 1 48 06 34 92",
+    "openingHours": {
+      "Lun-Ven": "12:00–15:00 · 19:00–22:00",
+      "Sam": "12:00–22:30",
+      "Dim": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Buddha bowl", "price": 14.2},
+      {"name": "Tacos de maïs", "price": 12.8},
+      {"name": "Flan vanille", "price": 6.5}
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Terrasse Sésame",
+    "type": "restaurant",
+    "latitude": 48.8527,
+    "longitude": 2.2860,
+    "city": "Paris",
+    "address": "18 Avenue Mozart, 75016 Paris",
+    "phone": "+33 1 40 72 09 66",
+    "openingHours": {
+      "Mar-Jeu": "12:00–14:30 · 19:00–22:30",
+      "Ven-Sam": "12:00–14:30 · 19:00–23:00",
+      "Dim-Lun": "Fermé"
+    },
+    "glutenFreeItems": [
+      {"name": "Curry coco", "price": 15.4},
+      {"name": "Poisson vapeur", "price": 18.6},
+      {"name": "Tiramisu sans gluten", "price": 7.8}
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Rue des Saveurs",
+    "type": "restaurant",
+    "latitude": 48.8936,
+    "longitude": 2.2888,
+    "city": "Levallois-Perret",
+    "address": "22 Rue Anatole France, 92300 Levallois-Perret",
+    "phone": "+33 1 47 27 63 19",
+    "openingHours": {
+      "Lun-Jeu": "12:00–14:30 · 19:00–22:30",
+      "Ven-Sam": "12:00–15:00 · 19:00–23:00",
+      "Dim": "12:00–16:00"
+    },
+    "glutenFreeItems": [
+      {"name": "Pizza base riz", "price": 18.2},
+      {"name": "Quinoa citronné", "price": 13.6},
+      {"name": "Mousse chocolat", "price": 6.8}
+    ]
+  }
+]
