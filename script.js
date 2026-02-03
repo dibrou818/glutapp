@@ -73,6 +73,54 @@ const normalizeForSearch = (value) => {
     .trim()
 }
 
+const hashToUnit = (value) => {
+  const str = String(value ?? "")
+  let hash = 2166136261
+  for (let i = 0; i < str.length; i += 1) {
+    hash ^= str.charCodeAt(i)
+    hash = Math.imul(hash, 16777619)
+  }
+  return (hash >>> 0) / 4294967295
+}
+
+const getPlaceRating = (place) => {
+  const seed = `${place.id}:${place.name}`
+  const u = hashToUnit(seed)
+  const raw = 3.9 + u * 1.0
+  const clamped = Math.min(4.9, Math.max(3.9, raw))
+  const rounded = Math.round(clamped * 10) / 10
+  const display = Math.round(rounded * 2) / 2
+  return { value: rounded, display }
+}
+
+const starSvg = (variant, idSuffix) => {
+  const basePath =
+    "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+
+  if (variant === "full") {
+    return `<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="${basePath}" class="starPath starPath--full"/></svg>`
+  }
+  if (variant === "half") {
+    return `<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="clip-${idSuffix}"><rect x="0" y="0" width="12" height="24" /></clipPath></defs><path d="${basePath}" class="starPath starPath--empty"/><path d="${basePath}" class="starPath starPath--full" clip-path="url(#clip-${idSuffix})"/></svg>`
+  }
+  return `<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="${basePath}" class="starPath starPath--empty"/></svg>`
+}
+
+const ratingHtml = (place, size = "sm") => {
+  const rating = getPlaceRating(place)
+  const full = Math.floor(rating.display)
+  const half = rating.display - full >= 0.5
+  const stars = Array.from({ length: 5 }, (_, i) => {
+    const index = i + 1
+    const idSuffix = `${place.id}-${size}-${index}`
+    if (index <= full) return starSvg("full", idSuffix)
+    if (index === full + 1 && half) return starSvg("half", idSuffix)
+    return starSvg("empty", idSuffix)
+  }).join("")
+
+  return `<div class="rating rating--${size}"><div class="ratingValue">${rating.value.toFixed(1)}</div><div class="ratingStars">${stars}</div></div>`
+}
+
 const levenshteinDistance = (a, b) => {
   if (a === b) return 0
   if (a.length === 0) return b.length
@@ -351,12 +399,21 @@ const renderList = (places) => {
     title.className = "card__title"
     title.textContent = place.name
 
+    const right = document.createElement("div")
+    right.className = "cardRight"
+
     const badge = document.createElement("div")
     badge.className = `badge ${badgeClass}`
     badge.textContent = "Restaurant"
 
+    const ratingWrap = document.createElement("div")
+    ratingWrap.innerHTML = ratingHtml(place, "sm")
+    const ratingEl = ratingWrap.firstChild
+
     header.appendChild(title)
-    header.appendChild(badge)
+    right.appendChild(badge)
+    if (ratingEl) right.appendChild(ratingEl)
+    header.appendChild(right)
 
     const items = document.createElement("div")
     items.className = "items"
@@ -392,6 +449,7 @@ const renderList = (places) => {
 const popupHtml = (place) => {
   const badgeClass = "popupBadge--restaurant"
   const badgeText = "Restaurant"
+  const rating = ratingHtml(place, "xs")
 
   const items = place.glutenFreeItems
     .map(normalizeItem)
@@ -402,12 +460,13 @@ const popupHtml = (place) => {
     })
     .join("")
 
-  return `<div class="popup"><div class="popupHeader"><div class="popupTitle">${place.name}</div><div class="popupBadge ${badgeClass}">${badgeText}</div></div><ul class="popupList">${items}</ul><button class="popupAction" data-place-id="${place.id}" type="button">Voir la fiche</button></div>`
+  return `<div class="popup"><div class="popupHeader"><div class="popupHeaderMain"><div class="popupTitle">${place.name}</div>${rating}</div><div class="popupBadge ${badgeClass}">${badgeText}</div></div><ul class="popupList">${items}</ul><button class="popupAction" data-place-id="${place.id}" type="button">Voir la fiche</button></div>`
 }
 
 const popupHtmlDetail = (place) => {
   const badgeClass = "popupBadge--restaurant"
   const badgeText = "Restaurant"
+  const rating = ratingHtml(place, "xs")
 
   const items = place.glutenFreeItems
     .map(normalizeItem)
@@ -418,7 +477,7 @@ const popupHtmlDetail = (place) => {
     })
     .join("")
 
-  return `<div class="popup"><div class="popupHeader"><div class="popupTitle">${place.name}</div><div class="popupBadge ${badgeClass}">${badgeText}</div></div><ul class="popupList">${items}</ul></div>`
+  return `<div class="popup"><div class="popupHeader"><div class="popupHeaderMain"><div class="popupTitle">${place.name}</div>${rating}</div><div class="popupBadge ${badgeClass}">${badgeText}</div></div><ul class="popupList">${items}</ul></div>`
 }
 
 const renderMap = (places) => {
@@ -460,6 +519,7 @@ const renderDetail = (place) => {
   const typeLabel = "Restaurant"
   const badgeClass = "badge--restaurant"
   const hours = place.openingHours && typeof place.openingHours === "object" ? place.openingHours : {}
+  const rating = ratingHtml(place, "md")
 
   const rawPhone = String(place.phone ?? "").trim()
   const phoneDigits = rawPhone.replace(/[\s.\-()]/g, "")
@@ -503,7 +563,10 @@ const renderDetail = (place) => {
         <div class="detailTitle">${place.name}</div>
         <div class="detailMeta">${typeLabel}</div>
       </div>
-      <div class="badge ${badgeClass}">${typeLabel}</div>
+      <div class="detailHeaderRight">
+        <div class="badge ${badgeClass}">${typeLabel}</div>
+        ${rating}
+      </div>
     </div>
     <div class="detailSections">
       <div class="detailSectionCard">

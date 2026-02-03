@@ -310,6 +310,15 @@ body {
 .card__title {
   font-size: 1.05rem;
   font-weight: 650;
+  min-width: 0;
+}
+
+.cardRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: 0 0 auto;
 }
 
 .badge {
@@ -328,6 +337,56 @@ body {
 .badge--supermarket {
   background: rgba(22, 163, 74, 0.12);
   color: var(--green);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratingValue {
+  font-weight: 850;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+
+.ratingStars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.starPath--full {
+  fill: #fbbf24;
+}
+
+.starPath--empty {
+  fill: rgba(15, 23, 42, 0.16);
+}
+
+.rating--xs .ratingValue {
+  font-size: 0.8rem;
+}
+
+.rating--xs .star {
+  width: 12px;
+  height: 12px;
+}
+
+.rating--md .ratingValue {
+  font-size: 1rem;
+}
+
+.rating--md .star {
+  width: 15px;
+  height: 15px;
 }
 
 .items {
@@ -462,6 +521,13 @@ body {
   border-bottom: 1px solid rgba(15, 23, 42, 0.1);
 }
 
+.popupHeaderMain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
 .popupTitle {
   font-weight: 750;
   font-size: 0.98rem;
@@ -592,6 +658,13 @@ body {
   gap: 12px;
 }
 
+.detailHeaderRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
 .detailTitle {
   font-size: 1.2rem;
   font-weight: 800;
@@ -715,6 +788,10 @@ body {
 
   .detailHeader {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detailHeaderRight {
     align-items: flex-start;
   }
 
